@@ -17,13 +17,30 @@ $(".img").click(function () {
 
     // On modifie la première lettre du nom afin de la transformée en majuscule
     const initiale = name.charAt(0).toUpperCase();
-
     // On concatène l'initale avec notre chaine de caractère moins l'initale
     const namedCapitalized = initiale + name.slice(1);
 
     $("#titre").text(namedCapitalized);
 
+    // Activation de l'animation de rebond prévue en css
+    $(this).toggleClass("flash");
+
+    // Jouer la musique correspondate à l'image cliquée
+    var music = $(this).attr("name") + ".mp3";
+
+    playMusic(music);
+
 });
+
+function playMusic(music) {
+    
+    // On créer un nouvel objet audio
+    var audio = new Audio(music);
+
+    // On utilise sa méthode play
+    audio.play();
+    
+}
 
 function getRandomColor() {
 
