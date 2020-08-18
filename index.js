@@ -32,6 +32,17 @@ $(".img").click(function () {
 
 });
 
+// On joue la musique en fonction du nom de l'artiste rentré par l'utilisateur
+$("#btn").click(function () { 
+
+    // On réccupère la valeur de notre input
+    var artiste = $("#input").val();
+    var music = artiste + ".mp3";
+
+    playMusic(music);
+    
+});
+
 function playMusic(music) {
     
     // On créer un nouvel objet audio
@@ -39,7 +50,7 @@ function playMusic(music) {
 
     // On utilise sa méthode play
     audio.play();
-    
+
 }
 
 function getRandomColor() {
